@@ -19,8 +19,7 @@ use Webmozart\Assert\Assert;
 
 final class Workflow implements StateMachineInterface
 {
-    /** @var Registry */
-    private $registry;
+    private Registry $registry;
 
     public function __construct(Registry $registry)
     {
@@ -29,6 +28,8 @@ final class Workflow implements StateMachineInterface
 
     /**
      * @inheritdoc
+     *
+     * @psalm-suppress InternalMethod
      */
     public function can(RequestConfiguration $configuration, ResourceInterface $resource): bool
     {
@@ -44,6 +45,8 @@ final class Workflow implements StateMachineInterface
 
     /**
      * @inheritdoc
+     *
+     * @psalm-suppress InternalMethod
      */
     public function apply(RequestConfiguration $configuration, ResourceInterface $resource): void
     {
