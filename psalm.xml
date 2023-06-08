@@ -31,6 +31,12 @@
             </errorLevel>
         </ArgumentTypeCoercion>
 
+        <DeprecatedClass>
+            <errorLevel type="info">
+                <referencedClass name="Doctrine\ORM\Event\LifecycleEventArgs" /> <!-- deprecated in doctrine/orm 2.14 -->
+            </errorLevel>
+        </DeprecatedClass>
+
         <DeprecatedMethod>
             <errorLevel type="suppress">
                 <referencedMethod name="Symfony\Component\EventDispatcher\Event::isPropagationStopped" />
@@ -102,6 +108,7 @@
         <MissingParamType>
             <errorLevel type="suppress">
                 <file name="src/Bundle/Routing/ResourceLoader.php" />
+                <file name="src/Component/Repository/InMemoryRepository.php" />
             </errorLevel>
         </MissingParamType>
 

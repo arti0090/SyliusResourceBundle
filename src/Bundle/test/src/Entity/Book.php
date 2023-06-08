@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
@@ -21,6 +22,9 @@ use Sylius\Component\Resource\Model\TranslatableTrait;
 /**
  * @Serializer\ExclusionPolicy("all")
  */
+#[ORM\Entity]
+#[ORM\MappedSuperclass]
+#[ORM\Table(name: 'app_book')]
 class Book implements ResourceInterface, TranslatableInterface
 {
     use TranslatableTrait {
@@ -29,15 +33,22 @@ class Book implements ResourceInterface, TranslatableInterface
 
     /**
      * @Serializer\Expose
+     *
      * @Serializer\Type("integer")
+     *
      * @Serializer\XmlAttribute
      */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
     private int $id;
 
     /**
      * @Serializer\Expose
+     *
      * @Serializer\Type("string")
      */
+    #[ORM\Column(length: 255)]
     private ?string $author = null;
 
     /**
@@ -52,6 +63,7 @@ class Book implements ResourceInterface, TranslatableInterface
      * @return string
      *
      * @Serializer\VirtualProperty()
+     *
      * @Serializer\SerializedName("title")
      */
     public function getTitle()
