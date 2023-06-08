@@ -34,6 +34,10 @@ jobs:
                         persistence: "^2.0"
                         collections: "^2.0"
 
+                    -
+                        symfony: "^5.4"
+                        collections: "^2.0"
+
         steps:
             -
                 uses: actions/checkout@v2

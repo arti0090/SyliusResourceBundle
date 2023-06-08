@@ -27,8 +27,13 @@ final class RecursiveTransformer implements DataTransformerInterface
         $this->decoratedTransformer = $decoratedTransformer;
     }
 
-    /** @param Collection|null $value */
-    public function transform($value): Collection
+    /**
+     * @param Collection|null $value
+     *
+     * @psalm-suppress LessSpecificReturnStatement
+     * @psalm-suppress MoreSpecificReturnType
+     */
+    public function transform($value)
     {
         if (null === $value) {
             return new ArrayCollection();
@@ -48,8 +53,13 @@ final class RecursiveTransformer implements DataTransformerInterface
         );
     }
 
-    /** @param Collection|null $value */
-    public function reverseTransform($value): Collection
+    /**
+     * @param Collection|null $value
+     *
+     * @psalm-suppress LessSpecificReturnStatement
+     * @psalm-suppress MoreSpecificReturnType
+     */
+    public function reverseTransform($value)
     {
         if (null === $value) {
             return new ArrayCollection();
